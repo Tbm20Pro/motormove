@@ -1,4 +1,4 @@
-mod my_motor;
+pub mod my_motor;
 
 
 

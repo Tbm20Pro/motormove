@@ -834,6 +834,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "motormove"
+version = "0.1.0"
+dependencies = [
+ "frcrs",
+ "tokio",
+]
+
+[[package]]
 name = "nalgebra"
 version = "0.32.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1072,14 +1080,6 @@ dependencies = [
  "libc",
  "untrusted",
  "windows-sys 0.52.0",
-]
-
-[[package]]
-name = "robotcode"
-version = "0.1.0"
-dependencies = [
- "frcrs",
- "tokio",
 ]
 
 [[package]]

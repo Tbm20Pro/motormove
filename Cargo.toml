@@ -1,5 +1,5 @@
 [package]
-name = "robotcode"
+name = "motormove"
 version = "0.1.0"
 edition = "2021"
 
@@ -12,7 +12,7 @@ tokio = { version = "1.38.0", features = ["full", "rt"] }
 
 [deploy]
 team_number = 2502
-executable = "target/arm-unknown-linux-gnueabi/release/robotcode"
+executable = "target/arm-unknown-linux-gnueabi/release/motormove"
 lib = "javastub.jar"
 
 

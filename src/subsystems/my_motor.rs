@@ -1,5 +1,5 @@
 use frcrs::ctre::{ControlMode, Talon};
-
+use crate::constants::robotmap;
 
 pub struct Motor {
     motor: Talon,
@@ -14,7 +14,7 @@ impl Default for Motor {
 impl Motor {
     pub fn new() -> Self {
         Self {
-            motor: Talon::new(7, None)
+            motor: Talon::new(robotmap::my_motor::MOTOR_ID, None)
         }
     }
 
