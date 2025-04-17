@@ -2,12 +2,12 @@ use std::time::{Duration, Instant};
 use tokio::time::sleep;
 pub mod subsystems;
 
+pub mod constants;
 
-use tokio::{runtime::Runtime, task::LocalSet};
-use frcrs::{init_hal, hal_report, observe_user_program_starting, refresh_data};
 use frcrs::input::{Joystick, RobotState};
+use frcrs::{hal_report, init_hal, observe_user_program_starting, refresh_data};
 use motormove::{teleop, Ferris, Joysticks};
-use crate::subsystems::Motor;
+use tokio::{runtime::Runtime, task::LocalSet};
 
 fn main() {
     let executor = Runtime::new().unwrap();
@@ -24,17 +24,16 @@ fn main() {
         let mut joysticks = Joysticks::new();
 
         loop {
-                refresh_data();
-                let state = RobotState::get();
-                let elapsed = last_loop.elapsed().as_secs_f64();
-                let left = (1. / 500. - elapsed).max(0.);
-                sleep(Duration::from_secs_f64(left)).await;
-                //println!("{}", 1. / last_loop.elapsed().as_secs_f64());
-                last_loop = Instant::now();
-                if state.enabled() && state.teleop() {
-                    teleop(&mut ferris, &mut joysticks)
-                }
+            refresh_data();
+            let state = RobotState::get();
+            let elapsed = last_loop.elapsed().as_secs_f64();
+            let left = (1. / 500. - elapsed).max(0.);
+            sleep(Duration::from_secs_f64(left)).await;
+            //println!("{}", 1. / last_loop.elapsed().as_secs_f64());
+            last_loop = Instant::now();
+            if state.enabled() && state.teleop() {
+                teleop(&mut ferris, &mut joysticks)
             }
+        }
     }));
-
 }

@@ -4,7 +4,6 @@ pub mod robotmap {
     }
 }
 
-
 pub mod joystick_map {
     pub const JOYSTICK_ID: i32 = 1;
 }

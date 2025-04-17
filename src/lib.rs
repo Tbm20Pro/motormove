@@ -1,12 +1,12 @@
-pub mod subsystems;
 pub mod constants;
+pub mod subsystems;
 
-use frcrs::input::Joystick;
 use crate::constants::joystick_map::JOYSTICK_ID;
 use crate::subsystems::Motor;
+use frcrs::input::Joystick;
 
 pub struct Ferris {
-    motor: Motor
+    motor: Motor,
 }
 impl Ferris {
     pub fn new() -> Ferris {
@@ -16,7 +16,7 @@ impl Ferris {
     }
 }
 pub struct Joysticks {
-    stick: Joystick
+    stick: Joystick,
 }
 
 impl Joysticks {
@@ -26,7 +26,6 @@ impl Joysticks {
         }
     }
 }
-
 
 pub fn teleop(ferris: &mut Ferris, sticks: &mut Joysticks) {
     // println!("{}", sticks.stick.get_x());
